@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Add Film";
+}
+
+@model NewMovie
+
+<div class="container">
+    <h2>Add a New Film</h2>
+    <form method="post" asp-action="AddFilm">
+        <!-- Category -->
+        <div class="mb-3">
+            <label asp-for="category" class="form-label"></label>
+            <input asp-for="category" type="text" class="form-control" required>
+        </div>
+
+        <!-- Title -->
+        <div class="mb-3">
+            <label asp-for="title" class="form-label"></label>
+            <input asp-for="title" type="text" class="form-control" required>
+        </div>
+
+        <!-- Year -->
+        <div class="mb-3">
+            <label asp-for="year" class="form-label"></label>
+            <input asp-for="year" type="number" class="form-control" min="1888" max="2099" required>
+        </div>
+
+        <!-- Director -->
+        <div class="mb-3">
+            <label asp-for="director" class="form-label"></label>
+            <input asp-for="director" type="text" class="form-control" required>
+        </div>
+
+        <!-- Rating (Dropdown) -->
+        <div class="mb-3">
+            <label asp-for="rating" class="form-label"></label>
+            <select asp-for="rating" class="form-select" required>
+                <option value="">Select a rating</option>
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+        </div>
+
+        <!-- Edited (Yes/No) -->
+        <div class="mb-3 form-check">
+            <input asp-for="edited" type="checkbox" class="form-check-input">
+            <label asp-for="edited" class="form-check-label"></label>
+        </div>
+
+        <!-- Lent To (Optional) -->
+        <div class="mb-3">
+            <label asp-for="lentTo" class="form-label"></label>
+            <input asp-for="lentTo" type="text" class="form-control">
+        </div>
+
+        <!-- Notes (Optional, Max 25 Characters) -->
+        <div class="mb-3">
+            <label asp-for="notes" class="form-label"></label>
+            <input asp-for="notes" type="text" class="form-control" maxlength="25">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Add Film</button>
+    </form>
+</div>
