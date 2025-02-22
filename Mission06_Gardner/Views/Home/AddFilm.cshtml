@@ -2,40 +2,61 @@
     ViewData["Title"] = "Add Film";
 }
 
-@model NewMovie
+@model Movie
 
 <div class="container">
     <h2>Add a New Film</h2>
-    <form method="post" asp-action="AddFilm">
+
+    <form method="post" asp-action="@(Model?.MovieId == 0 ? "AddFilm" : "Edit")">
+
+        <input type="hidden" asp-for="MovieId" />
+
         <!-- Category -->
-        <div class="mb-3">
-            <label asp-for="category" class="form-label"></label>
-            <input asp-for="category" type="text" class="form-control" required>
+        <div class="form-group">
+            <label asp-for="CategoryID">Category</label>
+            <select asp-for="CategoryID" class="form-control">
+                <option value="">-- Select a Category --</option>
+                @if (ViewBag.Categories != null)
+                {
+                    foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.CategoryID">@category.CategoryName</option>
+                    }
+                }
+            </select>
         </div>
 
         <!-- Title -->
         <div class="mb-3">
-            <label asp-for="title" class="form-label"></label>
-            <input asp-for="title" type="text" class="form-control" required>
-        </div>
-
-        <!-- Year -->
-        <div class="mb-3">
-            <label asp-for="year" class="form-label"></label>
-            <input asp-for="year" type="number" class="form-control" min="1888" max="2099" required>
+            <label asp-for="Title" class="form-label"></label>
+            <input asp-for="Title" type="text" class="form-control" required>
         </div>
 
         <!-- Director -->
         <div class="mb-3">
-            <label asp-for="director" class="form-label"></label>
-            <input asp-for="director" type="text" class="form-control" required>
+            <label asp-for="Director" class="form-label"></label>
+            <input asp-for="Director" type="text" class="form-control" required>
+        </div>
+
+        <!-- Year -->
+        <div class="mb-3">
+            <label asp-for="Year" class="form-label"></label>
+            <input asp-for="Year" type="number" class="form-control" min="1888" max="2099" required>
+        </div>
+
+        <!-- CopiedToPlex -->
+        <div>
+            <label asp-for="CopiedToPlex">Copied To Plex</label>
+            <select asp-for="CopiedToPlex" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
         </div>
 
         <!-- Rating (Dropdown) -->
         <div class="mb-3">
-            <label asp-for="rating" class="form-label"></label>
-            <select asp-for="rating" class="form-select" required>
-                <option value="">Select a rating</option>
+            <label asp-for="Rating" class="form-label"></label>
+            <select asp-for="Rating" class="form-select" required>
                 <option value="G">G</option>
                 <option value="PG">PG</option>
                 <option value="PG-13">PG-13</option>
@@ -44,24 +65,29 @@
         </div>
 
         <!-- Edited (Yes/No) -->
-        <div class="mb-3 form-check">
-            <input asp-for="edited" type="checkbox" class="form-check-input">
-            <label asp-for="edited" class="form-check-label"></label>
+        <div>
+            <label asp-for="Edited">Edited</label>
+            <select asp-for="Edited" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
         </div>
 
         <!-- Lent To (Optional) -->
         <div class="mb-3">
-            <label asp-for="lentTo" class="form-label"></label>
-            <input asp-for="lentTo" type="text" class="form-control">
+            <label asp-for="LentTo" class="form-label"></label>
+            <input asp-for="LentTo" type="text" class="form-control">
         </div>
 
         <!-- Notes (Optional, Max 25 Characters) -->
         <div class="mb-3">
-            <label asp-for="notes" class="form-label"></label>
-            <input asp-for="notes" type="text" class="form-control" maxlength="25">
+            <label asp-for="Notes" class="form-label"></label>
+            <input asp-for="Notes" type="text" class="form-control" maxlength="25">
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Add Film</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
+

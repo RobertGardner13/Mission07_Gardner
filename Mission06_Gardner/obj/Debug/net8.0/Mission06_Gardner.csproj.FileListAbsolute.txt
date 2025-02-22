@@ -132,6 +132,7 @@
 /Users/robertgardner/RiderProjects/Mission06_Gardner/Mission06_Gardner/obj/Debug/net8.0/Mission06_Gardner.csproj.AssemblyReference.cache
 /Users/robertgardner/RiderProjects/Mission06_Gardner/Mission06_Gardner/obj/Debug/net8.0/Mission0.5A9E1C1C.Up2Date
 /Users/robertgardner/RiderProjects/Mission06_Gardner/Mission06_Gardner/bin/Debug/net8.0/global.json
+/Users/robertgardner/RiderProjects/Mission06_Gardner/Mission06_Gardner/obj/Debug/net8.0/Mission06_Gardner.sourcelink.json
 /Users/robertgardner/RiderProjects/Mission06_Gardner/Mission06_Gardner/bin/Debug/net8.0/Mission06_Gardner.staticwebassets.endpoints.json
 /Users/robertgardner/RiderProjects/Mission06_Gardner/Mission06_Gardner/obj/Debug/net8.0/staticwebassets.build.endpoints.json
 /Users/robertgardner/RiderProjects/Mission06_Gardner/Mission06_Gardner/obj/Debug/net8.0/staticwebassets/msbuild.Mission06_Gardner.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
